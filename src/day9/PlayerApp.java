@@ -84,6 +84,35 @@ public class PlayerApp {
 		
 	
 		System.out.println(hashmap);
+		
+		String countryWithMaxPlayers=hashmap.entrySet()
+		.stream()
+		.max(Map.Entry.comparingByValue())
+		.map(Map.Entry::getKey)
+		.orElse(null);
+		
+		System.out.println(countryWithMaxPlayers);
+		
+		String countryWithMinPlayers=hashmap.entrySet()
+				.stream()
+				.min(Map.Entry.comparingByValue())
+				.map(Map.Entry::getKey)
+				.orElse(null);
+				
+				System.out.println(countryWithMinPlayers);
+				
+				
+				
+				//display the name of the country with maximum palyers
+				String s1=players.stream()
+				.collect(Collectors.groupingBy(Player::getCountryName,Collectors.counting()))
+				.entrySet()
+				.stream()
+				.max(Map.Entry.comparingByValue())
+				.map(Map.Entry::getKey)
+				.orElse(null);
+				
+				System.out.println(s1);
 	}
 
 }
