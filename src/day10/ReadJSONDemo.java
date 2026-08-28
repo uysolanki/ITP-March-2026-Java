@@ -2,11 +2,11 @@ package day10;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import day1.Employee;
 
 public class ReadJSONDemo {
 
@@ -53,6 +53,24 @@ public class ReadJSONDemo {
                 .count();
         
         System.out.println(countOfIndianPlayer);
+        
+        //display country wise name of players
+        //step 1
+       Map<String,List<Player>> countryWiseallPlayerObjects=players.stream()
+        .collect(Collectors.groupingBy(Player::getCountryName));
+       
+       System.out.println(countryWiseallPlayerObjects);
+       
+     //step 2
+       Map<String,List<String>> countryWiseallPlayerNames=players.stream()
+        .collect(Collectors.groupingBy(Player::getCountryName,Collectors.mapping(Player::getName, Collectors.toList())));
+       System.out.println(countryWiseallPlayerNames);
+       
+       
+       
+     //display country wise name of players
 	}
 
 }
+
+
