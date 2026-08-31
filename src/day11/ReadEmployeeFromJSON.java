@@ -67,6 +67,18 @@ public class ReadEmployeeFromJSON {
        .orElse(null);
        
        System.out.println(maxChar);
+       
+       //display citywise count of employees
+      Map<String,Long> emps=employees.stream()
+       .collect(Collectors.groupingBy(employee->employee.getAddress().getCity(), Collectors.counting()));
+      System.out.println(emps);
+      
+     String city= emps.entrySet().stream()
+      .max(Map.Entry.comparingByValue())
+      .map(Map.Entry::getKey)
+      .orElse(null);
+     
+     System.out.println(city);
 	}
 
 }
