@@ -25,8 +25,6 @@ public class CreateTable {
 		
 		st.close();
 		connection.close();
-		
-
 	}
 
 }
