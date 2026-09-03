@@ -4,11 +4,11 @@ public class MultiThreadDemo {
 
 	public static void main(String[] args) {
 
-		Alpha thread1=new Alpha();
-		Beta thread2=new Beta();
+		Alpha thread1=new Alpha("Apple");
+		Beta thread2=new Beta("Mango");
 		
-		thread1.start();
-		thread2.start();
+		thread1.run();
+		thread2.run();
 	}
 
 }
