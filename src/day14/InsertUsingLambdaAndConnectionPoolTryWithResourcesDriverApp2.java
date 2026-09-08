@@ -55,7 +55,6 @@ public class InsertUsingLambdaAndConnectionPoolTryWithResourcesDriverApp2 {
 			int rows=st.executeUpdate(query);
 			
 			System.out.println(rows + " records inserted");
-			
 			}
 			catch(Exception ex) {}
 			
